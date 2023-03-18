@@ -1,3 +1,5 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/nqbao11/go-to-auto/badge)](https://www.codefactor.io/repository/github/nqbao11/go-to-auto)
+
 # Clean Architecture with Golang
 Perfectly Capstone for DevOps course 😍
 
