@@ -17,7 +17,9 @@ jobs:
             - "/go/pkg/mod"
       - run: 
           name: Lint
-          command: golint ./...
+          command: |
+            go get -u golang.org/x/lint/golint
+            golint ./...
 
 workflows:
   default:
