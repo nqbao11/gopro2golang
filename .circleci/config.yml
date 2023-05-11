@@ -1,5 +1,3 @@
-orbs:
-  golangci-lint: timakin/golangci-lint@volatile
 version: 2.1
 jobs:
   build:
