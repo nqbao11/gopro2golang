@@ -1,7 +1,27 @@
 orbs:
   golangci-lint: timakin/golangci-lint@volatile
 version: 2.1
-workflows:
+jobs:
   build:
+    docker:
+      - image: cimg/go:1.20
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - go-mod-v4-{{ checksum "go.sum" }}
+      - run:
+          name: Install Dependencies
+          command: go mod download
+      - save_cache:
+          key: go-mod-v4-{{ checksum "go.sum" }}
+          paths:
+            - "/go/pkg/mod"
+      - run: 
+          name: Lint
+          command: golint ./...
+
+workflows:
+  default:
     jobs:
-      - golangci-lint/lint
+      - build
